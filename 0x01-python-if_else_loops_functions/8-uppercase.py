@@ -4,4 +4,4 @@ def uppercase(str):
     for char in str:
         if ord(char) >= 65:
             result += chr(ord(char) - 32)
-    return result
+    print(result)

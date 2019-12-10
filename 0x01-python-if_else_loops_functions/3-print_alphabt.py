@@ -1,2 +1,8 @@
 #!/usr/bin/python3
-def add(a, b):
+alphabet = ""
+for i in range(ord('a'), ord('z') + 1):
+    if chr(i) == 'q' or chr(i) == 'e':
+        pass
+    else:
+        alphabet += chr(i)
+print("{}".format(alphabet, end=''))

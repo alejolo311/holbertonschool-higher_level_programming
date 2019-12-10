@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 
-letter = 'a'
 alphabet = ""
-for i in range(0, 26):
-    alphabet += letter
-    letter = chr(ord(letter) + 1)
+for i in range(ord('a'), ord('z') + 1):
+    alphabet += chr(i)
 print("{}".format(alphabet, end=''))

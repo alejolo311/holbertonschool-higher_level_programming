@@ -6,8 +6,8 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *tortoise = *head, *hare = *head, *prev = *head, *tmp1;
-	listint_t *list_2 = NULL, *mid_list = NULL, *actual, *tmp, *tmp2;
+	listint_t *tortoise = *head, *hare = *head, *prev = *head;
+	listint_t *list_2 = NULL, *mid_list = NULL, *actual, *tmp; 
 	int ret = 0;
 
 	if (hare == NULL || hare->next == NULL)
@@ -21,18 +21,7 @@ int is_palindrome(listint_t **head)
     while (actual)
 	    tmp = actual->next, actual->next = prev, prev = actual, actual = tmp;
 	list_2 = prev;
-    tmp1 = *head, tmp2 = list_2; 
-    while (tmp1 != NULL && tmp2 != NULL)
-	{
-		if (tmp1->n == tmp2->n)
-			tmp1 = tmp1->next, tmp2 = tmp2->next;
-		else
-			ret = 0;
-	}
-	if (tmp1 == NULL && tmp2 == NULL)
-		ret = 1;
-	else 
-        ret = 0;
+    ret = cmp(*head, list_2);
 	prev = NULL; actual = list_2;
     while (actual)
 	    tmp = actual->next, actual->next = prev, prev = actual, actual = tmp;
@@ -42,4 +31,24 @@ int is_palindrome(listint_t **head)
 	else
 		prev->next = list_2;
 	return (ret);
+}
+
+int cmp(listint_t *h1, listint_t *h2)
+{
+	listint_t *tmp1 = h1;
+	listint_t *tmp2 = h2;
+
+	while (tmp1 && tmp2)
+	{
+		if (tmp1->n == tmp2->n)
+		{
+			tmp1 = tmp1->next;
+			tmp2 = tmp2->next;
+		}
+		else
+			return (0);
+	}
+	if (tmp1 == NULL && tmp2 == NULL)
+		return (1);
+	return (0);
 }

@@ -35,16 +35,12 @@ int is_palindrome(listint_t **head)
 
 int cmp(listint_t *h1, listint_t *h2)
 {
-	listint_t *tmp1 = h1;
-	listint_t *tmp2 = h2;
+	listint_t *tmp1 = h1, *tmp2 = h2;
 
 	while (tmp1 && tmp2)
 	{
 		if (tmp1->n == tmp2->n)
-		{
-			tmp1 = tmp1->next;
-			tmp2 = tmp2->next;
-		}
+			tmp1 = tmp1->next, tmp2 = tmp2->next;
 		else
 			return (0);
 	}

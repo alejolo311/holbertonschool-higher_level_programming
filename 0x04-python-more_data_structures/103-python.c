@@ -47,7 +47,7 @@ void print_python_list(PyObject *p)
 
 
     s = PyList_Size(p);
-    a = l->a;
+    a = l->allocated;
     printf("[*] Python list info\n");
 	printf("[*] Size of the Python List = %i\n", s);
 	printf("[*] Allocated = %i\n", a);
@@ -56,6 +56,6 @@ void print_python_list(PyObject *p)
 		dataType = (l->ob_item[i])->ob_type->tp_name;
 		printf("Element %i: %s\n", i, dataType);
 		if (strcmp(dataType, "bytes") == 0)
-			print_python_bytes(list->ob_item[i]);
+			print_python_bytes(l->ob_item[i]);
 	}
 }

@@ -23,7 +23,10 @@ void print_python_bytes(PyObject *p)
 	}
 	PyBytes_AsStringAndSize(p, &str, &b);
 	printf("  size: %li\n", b), printf("  trying string: %s\n", str);
-	b > 10 ? b = 10 : b++;
+	if (b > 10)
+		b = 10;
+	else
+		b++;
 	printf("  first %li bytes: ", b);
 	for (i = 0; i < b - 1; i++)
 		printf("%02hhx ", str[i]);
@@ -39,11 +42,12 @@ void print_python_bytes(PyObject *p)
 void print_python_list(PyObject *p)
 {
 	int i, s, a;
-	char *dataType;
+	const char *dataType;
 	PyListObject *l = (PyListObject *)p;
 
 
-    s = PyList_Size(p), a = l->a;
+    s = PyList_Size(p);
+    a = l->a;
     printf("[*] Python list info\n");
 	printf("[*] Size of the Python List = %i\n", s);
 	printf("[*] Allocated = %i\n", a);
@@ -51,6 +55,7 @@ void print_python_list(PyObject *p)
 	{
 		dataType = (l->ob_item[i])->ob_type->tp_name;
 		printf("Element %i: %s\n", i, dataType);
-		strcmp(dataType, "bytes") == 0 ? print_python_bytes(l->ob_item[i]) : i;
+		if (strcmp(dataType, "bytes") == 0)
+			print_python_bytes(list->ob_item[i]);
 	}
 }

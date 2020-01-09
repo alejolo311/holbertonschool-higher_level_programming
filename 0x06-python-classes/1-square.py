@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-class square():
+class Square():
     """A square class."""
-    def __init__(self):
+    def __init__(self, size):
         """Initialization of the class square."""
         self.__size = size

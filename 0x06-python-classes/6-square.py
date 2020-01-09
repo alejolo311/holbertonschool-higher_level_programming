@@ -3,8 +3,8 @@ class Square():
     """A square class."""
     def __init__(self, size=0, position=(0, 0)):
         """Initialization of the class square."""
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     def area(self):
         """The area of the Square"""

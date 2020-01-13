@@ -11,7 +11,7 @@ Import the function:
 
 Now test it:
 
-correct cases: 
+correct cases
 
     >>> say_my_name("Alejo", "Lopez")
     My name is Alejo Lopez

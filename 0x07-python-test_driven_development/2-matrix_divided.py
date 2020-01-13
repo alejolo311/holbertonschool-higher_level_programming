@@ -2,6 +2,7 @@
 """
 Module matrix_divided
 Divided matrix
+
 """
 
 

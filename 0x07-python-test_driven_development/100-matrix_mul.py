@@ -41,11 +41,11 @@ def matrix_mul(m_a, m_b):
     lr = list(map(lambda i: len(i), [i for i in m_a]))
 
     if lr.count(lr[0]) != len(lr):
-        raise TypeError('each row of m_a must should be of the same size')
+        raise TypeError('each row of m_a must be of the same size')
 
     lr = list(map(lambda i: len(i), [i for i in m_b]))
     if lr.count(lr[0]) != len(lr):
-        raise TypeError('each row of m_b must should be of the same size')
+        raise TypeError('each row of m_b must be of the same size')
 
     if len(m_a[0]) != len(m_b):
         raise ValueError("m_a and m_b can't be multiplied")

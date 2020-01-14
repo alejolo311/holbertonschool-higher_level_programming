@@ -22,6 +22,10 @@ correct Cases:
     [[19, 22, 5], [43, 50, 11], [43, 50, 11]]
 
 Error Cases:
+    >>> matrix_mul("[]", [[], []])
+    Traceback (most recent call last):
+    TypeError: m_a must be a list
+
     >>> matrix_mul([[], []], "[]")
     Traceback (most recent call last):
     TypeError: m_b must be a list
@@ -29,6 +33,11 @@ Error Cases:
     >>> matrix_mul(["a", "b"], [[1, 2], [3, 4]])
     Traceback (most recent call last):
     TypeError: m_a must be a list of lists
+
+    Test for second argument not being a list of lists
+    >>> matrix_mul([[1, 2], [3, 4]], ["a", "b"])
+    Traceback (most recent call last):
+    TypeError: m_b must be a list of lists
 
     >>> matrix_mul([["1", 2], [3, 4]], [[5, 6], [7, 8]])
     Traceback (most recent call last):

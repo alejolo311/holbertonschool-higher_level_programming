@@ -6,11 +6,11 @@ lazy_matrix_mul
 
 """
 
-import numpy
+import numpy as np
 
 
 def lazy_matrix_mul(m_a, m_b):
     """
     Multiply using numpy
     """
-    return numpy.matmul(m_a, m_b)
+    return np.matmul(m_a, m_b)

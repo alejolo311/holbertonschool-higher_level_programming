@@ -65,4 +65,5 @@ def replace_in_heap():
         print("        I/O error({}): {}".format(e.errno, e.strerror))
         sys.exit(1)
 
+
 replace_in_heap()

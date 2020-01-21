@@ -14,7 +14,7 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def to_json(self):
+    def to_json(self, attrs=None):
         """dictionary"""
         if attrs is not None and all(isinstance(item, str) for item in attrs):
             ret = {}

@@ -25,7 +25,7 @@ class Student:
         else:
             return self.__dict__
 
-        def reload_from_json(self, json):
-            """change all attributes"""
-            for p, r in json.items():
-                self.__dict__[p] = r
+    def reload_from_json(self, json):
+        """change all attributes"""
+        for p, r in json.items():
+            self.__dict__[p] = r

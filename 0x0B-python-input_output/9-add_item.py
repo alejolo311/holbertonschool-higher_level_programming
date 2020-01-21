@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-Add all arguments to a Python list, and then save them to a file.
+ save items to a file.
 """
 
 import sys

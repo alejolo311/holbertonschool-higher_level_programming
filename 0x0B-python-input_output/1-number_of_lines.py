@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-module for number_of_lines.
+module for number_of_lines
 """
 
 

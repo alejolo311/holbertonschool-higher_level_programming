@@ -22,12 +22,12 @@ if __name__ == "__main__":
                     print("{}: {}".format(i, st[i]))
                 c = 1
             else:
-                c += 1
+                c = c + 1
 
             line = line.split()
 
             try:
-                size += int(line[-1])
+                size = size + int(line[-1])
             except (IndexError, ValueError):
                 pass
 
@@ -36,7 +36,7 @@ if __name__ == "__main__":
                     if st.get(line[-2], -1) == -1:
                         st[line[-2]] = 1
                     else:
-                        st[line[-2]] += 1
+                        st[line[-2]] = st[line[-2]] + 1
             except IndexError:
                 pass
 

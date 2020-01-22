@@ -11,6 +11,7 @@ Import the class:
 
 Now test it:
 
+    >>> my_list = MyList()
     >>> my_list.append(1)
     >>> my_list.append(4)
     >>> my_list.append(2)

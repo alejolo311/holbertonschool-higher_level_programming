@@ -99,3 +99,14 @@ class Rectangle(Base):
         i = str(self.id)
         string = "[Rectangle] (" + i + ") " + x + "/" + y + " - " + w + "/" + h
         return string
+
+    def update(self, *args, **kwargs):
+        """update"""
+        if args:
+            a = ["id", "width", "height", "x", "y"]
+            for i, e in enumerate(args):
+                setattr(self, a[i], e)
+            return
+        for x, y in kwargs.items():
+            if hasattr(self, x):
+                setattr(self, x, y)

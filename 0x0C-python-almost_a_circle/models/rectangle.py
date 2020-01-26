@@ -73,3 +73,29 @@ class Rectangle(Base):
         if y < 0:
             raise ValueError("y must be >= 0")
         self.__y = y
+
+    def area(self):
+        """the area"""
+        return self.__width * self.__height
+
+    def display(self):
+        """Print"""
+        y = self.__y
+        height = self.__height
+        x = self.__x
+        width = self.__width
+        for i in range(y):
+            print()
+        for i in range(height):
+            print(" " * x, end="")
+            print("#" * width)
+
+    def __str__(self):
+        """string representation"""
+        y = str(self.__y)
+        h = str(self.__height)
+        x = str(self.__x)
+        w = str(self.__width)
+        i = str(self.id)
+        string = "[Rectangle] (" + i + ") " + x + "/" + y + " - " + w + "/" + h
+        return string

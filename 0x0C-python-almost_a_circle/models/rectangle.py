@@ -117,3 +117,10 @@ class Rectangle(Base):
         for x, y in vars(self).items():
             Dictionary[x.split("__")[-1]] = y
         return Dictionary
+
+    @classmethod
+    def create(cls, **dictionary):
+        """instance"""
+        aux = cls(1, 1) if cls.__name__ == "Rectangle" else cls(1)
+        aux.update(**dictionary)
+        return aux

@@ -46,3 +46,16 @@ class Base:
         filename = cls.__name__ + ".json"
         with open(filename, "w") as f:
             f.write(cls.to_json_string(out))
+
+    @staticmethod
+    def from_json_string(string):
+        """return from json a string"""
+        if string is None or string == "":
+            return []
+        if type(string) != str:
+            raise TypeError("json_string must be a string")
+        data = json.loads(string)
+        for d in data:
+            if type(d) != dict:
+                raise ValueError("json_string must contain dictionaries")
+        return data

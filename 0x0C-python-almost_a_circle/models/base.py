@@ -5,6 +5,7 @@ module for Base class
 """
 
 import json
+import os
 
 
 class Base:
@@ -66,3 +67,16 @@ class Base:
         aux = cls(1, 1) if cls.__name__ == "Rectangle" else cls(1)
         aux.update(**dictionary)
         return aux
+
+    @classmethod
+    def load_from_file(cls):
+        """lisr of instances"""
+        filename = str(cls).split(".")[-1][:-2] + ".json"
+        if not os.path.exists(filename):
+            return []
+        ret = []
+        with open(filename, "r") as f:
+            dictionary = cls.from_json_string(f.readline())
+        for x in dictionary:
+            ret.append(cls.create(**x))
+        return ret

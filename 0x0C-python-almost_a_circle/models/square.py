@@ -46,8 +46,15 @@ class Square(Rectangle):
                 setattr(self, x, y)
 
     def to_dictionary(self):
-        """Dictionary"""
-        Dictionary = {}
+        """Dcitionary"""
+        Dictorionary = {}
         for x, y in vars(self).items():
-            Dictionary[x.split("__")[-1]] = y
-        return Dictionary
+            if x.startswith("_"):
+                if not x.endswith("width") and not x.endswith("height"):
+                    idx = x.index("__")
+                    Dictorionary[x[idx + 2:]] = y
+                else:
+                    Dictorionary["size"] = y
+            else:
+                Dictorionary[x] = y
+        return Dictorionary

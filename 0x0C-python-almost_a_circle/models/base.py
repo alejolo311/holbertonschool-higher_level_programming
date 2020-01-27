@@ -59,3 +59,10 @@ class Base:
             if type(d) != dict:
                 raise ValueError("json_string must contain dictionaries")
         return data
+
+    @classmethod
+    def create(cls, **dictionary):
+        """instance"""
+        aux = cls(1, 1) if cls.__name__ == "Rectangle" else cls(1)
+        aux.update(**dictionary)
+        return aux

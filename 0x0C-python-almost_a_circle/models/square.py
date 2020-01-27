@@ -44,3 +44,10 @@ class Square(Rectangle):
         for x, y in kwargs.items():
             if hasattr(self, x):
                 setattr(self, x, y)
+
+    def to_dictionary(self):
+        """Dictionary"""
+        Dictionary = {}
+        for x, y in vars(self).items():
+            Dictionary[x.split("__")[-1]] = y
+        return Dictionary

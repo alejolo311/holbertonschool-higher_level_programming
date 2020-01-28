@@ -6,6 +6,7 @@ module for Base class
 
 import json
 import os
+import csv
 
 
 class Base:
@@ -80,3 +81,46 @@ class Base:
         for x in dictionary:
             ret.append(cls.create(**x))
         return ret
+
+    @classmethod
+    def save_to_file_csv(cls, data):
+        """CSV"""
+        if type(data) != list and data is not None:
+            raise TypeError("list_objs must be a list")
+        if not all(isinstance(i, cls) for i in data):
+            raise TypeError("list_objs must be a list")
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w") as f:
+            if data is not None:
+                data = [i.to_dictionary() for i in data]
+                sfields = ['id', 'size', 'x', 'y']
+                rfields = ['id', 'width', 'height', 'x', 'y']
+                if cls.__name__ == "Rectangle":
+                    writer = csv.DictWriter(f, fieldnames=rfields)
+                else:
+                    writer = csv.DictWriter(f, fieldnames=sfields)
+                writer.writeheader()
+                writer.writerows(data)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """CSV"""
+        filename = cls.__name__ + ".csv"
+        sheader = ["id", "size", "x", "y"]
+        rheader = ["id", "width", "height", "x", "y"]
+        if cls.__name__ == "Rectangle":
+            header = rheader
+        else:
+            header = sheader
+        result = []
+        if os.path.exists(filename):
+            with open(filename, "r") as f:
+                reader = csv.reader(f, delimiter=',')
+                for i, row in enumerate(reader):
+                    if i > 0:
+                        new = cls(1, 1)
+                        for x, y in enumerate(row):
+                            if y:
+                                setattr(new, header[x], int(y))
+                        result.append(new)
+        return result

@@ -299,3 +299,22 @@ class RectangleTest(unittest.TestCase):
         r = Rectangle(1, 2, 3, 4, 12)
         r.update()
         self.assertEqual(r.__str__(), "[Rectangle] (12) 3/4 - 1/2")
+
+    def test_21(self):
+        """Test 21 for Rectangle"""
+        r = Rectangle(12, 14, 1, 9)
+        r_dict = {'x': 1, 'y': 9, 'id': 1, 'height': 14, 'width': 12}
+        self.assertEqual(r.to_dictionary(), r_dict)
+        self.assertEqual(r.to_dictionary() is r_dict, False)
+        r = Rectangle(12, 12, 15)
+        r_dict = {'width': 12, 'height': 12, 'x': 15, 'id': 2, 'y': 0}
+        self.assertEqual(r.to_dictionary(), r_dict)
+        self.assertEqual(r.to_dictionary() is r_dict, False)
+        r = Rectangle(62, 414)
+        r_dict = {'width': 62, 'height': 414, 'x': 0, 'id': 3, 'y': 0}
+        self.assertEqual(r.to_dictionary(), r_dict)
+        self.assertEqual(r.to_dictionary() is r_dict, False)
+        r = Rectangle(1, 2, 3, 4, 5)
+        r_dict = {'width': 1, 'height': 2, 'x': 3, 'id': 5, 'y': 4}
+        self.assertEqual(r.to_dictionary(), r_dict)
+        self.assertEqual(r.to_dictionary() is r_dict, False)

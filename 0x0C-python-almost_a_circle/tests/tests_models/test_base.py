@@ -14,8 +14,8 @@ class TestBase(unittest.TestCase):
     def setUp(self):
         Base._Base__nb_objects = 0
 
-    def test_0id(self):
-        """Test number 0"""
+    def test_0(self):
+        """Test number 0 for base"""
         base0 = Base()
         base1 = Base()
         base2 = Base()

@@ -60,3 +60,14 @@ class TestBase(unittest.TestCase):
         """Test number 8 for base"""
         base0 = Base(12.3)
         self.assertEqual(base0.id, 12.3)
+
+    def test_09(self):
+        """Test number 9 for base"""
+        base0 = Base()
+        self.assertEqual(str(type(base0)), "<class 'models.base.Base'>")
+        self.assertEqual(base0.__dict__, {"id": 1})
+
+    def test_10(self):
+        """Test number 10 for base"""
+        ret = Base.to_json_string(None)
+        self.assertEqual(ret, "[]")

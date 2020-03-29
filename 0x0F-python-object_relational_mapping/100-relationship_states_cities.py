@@ -20,8 +20,7 @@ if __name__ == '__main__':
     session = Session()
 
     california = State(name="California")
-    sanFrancisco = City(name="San Francisco")
-    california.cities.append(sanFrancisco)
-    session.add(california)
+    sanFrancisco = City(name="San Francisco", state=california)
+    session.add(sanFrancisco)
     session.commit()
     session.close()

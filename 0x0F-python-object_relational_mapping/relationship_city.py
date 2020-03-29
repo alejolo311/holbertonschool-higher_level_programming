@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """
-City class
+Module City class
 """
 
-from relationship_state import Base, State
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 

@@ -2,8 +2,8 @@
 """
 State class
 """
-
-from sqlalchemy.ext.declarative import declarative_base
+from relationship_city import Base
+from relationship_city import City
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, Integer, String
 
@@ -24,4 +24,4 @@ class State(Base):
                   nullable=False)
     cities = relationship("City",
                           backref="state",
-                          cascade="all, delete-orphan")
+                          cascade="all, delete")

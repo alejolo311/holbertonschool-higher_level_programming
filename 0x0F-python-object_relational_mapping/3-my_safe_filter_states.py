@@ -17,7 +17,7 @@ if __name__ == '__main__':
                          db=DB_Name,
                          charset="utf8")
     cursor = DB.cursor()
-    cur.execute("SELECT * FROM states WHERE name=%s\
+    cursor.execute("SELECT * FROM states WHERE name=%s\
                 ORDER BY states.id ASC", (state_name,))
     rows = cursor.fetchall()
     for row in rows:

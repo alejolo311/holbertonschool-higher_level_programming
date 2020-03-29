@@ -19,5 +19,8 @@ if __name__ == '__main__':
     session = Session()
     states = session.query(State)
     response = states.filter_by(name=state_name).first()
-    print(response.id if response else "Not found")
+    if response:
+        print("{}".format(response.id))
+    else:
+        print("Not found")
     session.close()

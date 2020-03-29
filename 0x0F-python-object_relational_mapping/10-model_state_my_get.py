@@ -17,8 +17,7 @@ if __name__ == '__main__':
     Base.metadata.create_all(engine)
 
     session = Session(engine)
-    states = session.query(State)
-    state = states.filter_by(name == state_name).first()
+    state = session.query(State).filter(State.name == state_name).first()
     if state:
         print("{}".format(state.id))
     else:

@@ -15,12 +15,12 @@ if __name__ == '__main__':
                            .format(username, password, DB_name),
                            pool_pre_ping=True)
     Base.metadata.create_all(engine)
-    Session = sessionmaker(bind=engine)
-    session = Session()
+
+    session = Session(engine)
     states = session.query(State)
-    response = states.filter_by(name=state_name).first()
-    if response:
-        print("{}".format(response.id))
+    state = states.filter_by(name == state_name).first()
+    if state:
+        print("{}".format(state.id))
     else:
         print("Not found")
     session.close()

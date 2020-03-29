@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """list cities"""
 
-from model_state import Base, State
-from model_city import City
+from relationship_state import State
+from relationship_city import Base, City
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 import sys

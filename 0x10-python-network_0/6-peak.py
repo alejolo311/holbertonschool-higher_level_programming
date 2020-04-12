@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """
 finds a peak in a list.
 O(log(n)) solution
@@ -10,8 +11,8 @@ def find_peak(list_of_integers):
     if not list_of_integers:
         return None
     list_len = len(list_of_integers)
-    result = helper(list_of_integers, 0, len(list_of_integers)
-                    - 1, len(list_of_integers))
+    result = helper(list_of_integers, 0, len(list_of_integers) - 1,
+                    len(list_of_integers))
     return result
 
 

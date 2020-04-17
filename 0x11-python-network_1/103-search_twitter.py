@@ -32,7 +32,7 @@ if __name__ == "__main__":
                                 'count': 5
                             })
     tweets = response.json()
-    for tweet in tweet_data['statuses']:
+    for tweet in tweets['statuses']:
         print("[{}] {} by {}".format(tweet.get('id_str'),
                                      tweet.get('text'),
                                      tweet.get('user').get('name')))

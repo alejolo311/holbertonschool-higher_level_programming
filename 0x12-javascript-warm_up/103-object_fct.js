@@ -5,13 +5,13 @@ const myObject = {
 };
 console.log(myObject);
 
-myObject._increment = () => {
+myObject.incr = () => {
   this.value += 1;
 };
 
-myObject._increment();
+myObject.incr();
 console.log(myObject);
-myObject._increment();
+myObject.incr();
 console.log(myObject);
-myObject._increment();
+myObject.incr();
 console.log(myObject);

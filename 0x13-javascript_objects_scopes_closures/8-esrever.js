@@ -2,7 +2,7 @@
 
 exports.esrever = function (list) {
   const newList = [];
-  for (element of list) {
+  for (const element of list) {
     newList.unshift(element);
   }
   return newList;

@@ -32,7 +32,7 @@ request.post(
       }
       const tweets = JSON.parse(body);
       for (const tweet of tweets.statuses) {
-        console.log(`[${tweet.id_str}] ${tweet.text} by ${tweet.user.name}`);
+        console.log(`[${tweet.id}] ${tweet.text} by ${tweet.user.name}`);
       }
     });
   }
